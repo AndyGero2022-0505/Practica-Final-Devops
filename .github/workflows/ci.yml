@@ -9,18 +9,8 @@ on:
       - main
 
 jobs:
-  build:name: CI
-
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-
-jobs:
   build:
+    name: Build
     runs-on: ubuntu-latest
 
     steps:
@@ -29,13 +19,14 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '16' # Usa Node.js 16 o superior
+        node-version: '14'
 
     - name: Install dependencies
       run: npm install
 
     - name: Run tests
       run: npm test
+
 
     runs-on: ubuntu-latest
 
